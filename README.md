@@ -217,6 +217,11 @@ Create a `.env` file in this repository’s root.
 These variables are used directly by the orchestrator (`code_force_demo.py`). fileciteturn0file0
 
 ```env
+AGNO_TELEMETRY=false
+AGNO_MONITOR=False
+
+JAVA_HOME=/usr/java/jdk-21-oracle-x64
+
 # CRITICAL: use a dedicated working directory.
 # The script DELETES APP_DIR if it already exists. In the demo i used '/tmp/bike_backend' as APP_DIR
 APP_DIR=/absolute/path/to/a/safe/workdir/bike_backend
