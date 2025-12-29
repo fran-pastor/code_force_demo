@@ -32,7 +32,7 @@ This repo contains the orchestrator script (`code_force_demo.py`), agent prompts
   - If the gate fails, the Coordinator requests remediation and repeats until PASSED.
 - **Definition of Done**: tests green **and** Quality Gate PASSED, then final report/handoff.
 
-> Important: the included Sonar Analyst prompt is written for **SonarQube Community Edition** (no branch analysis). Scans are performed against a single project key; do not rely on branch analysis features.
+> Important: the included Sonar Analyst prompt is written for **SonarQube Community Edition** (no branch analysis because community version don't support it, this is only a demo). Scans are performed against a single project key; do not rely on branch analysis features.
 
 ---
 
@@ -53,8 +53,8 @@ This repo contains the orchestrator script (`code_force_demo.py`), agent prompts
 
 - Docker
 - Git
-- Maven
-- Python 3 (recommended: 3.10+)
+- Maven (3.9+)
+- Python 3 (recommended: 3.13+)
 
 The script validates the presence of `git`, `mvn`, and `docker` at startup.
 
@@ -98,7 +98,6 @@ docker run -d --name postgres-sonarqube \
   -e POSTGRES_PASSWORD=sonarpass \
   -e POSTGRES_DB=sonarqube \
   -v postgres_data:/var/lib/postgresql/data \
-  --restart unless-stopped \
   postgres:15
 ```
 
@@ -123,8 +122,6 @@ Open SonarQube:
 - http://localhost:9000
 
 Log in as `admin`, change the password when prompted, and proceed.
-
-> If SonarQube fails to start on Linux, check container logs for kernel parameter requirements (commonly `vm.max_map_count`).
 
 ---
 
@@ -210,7 +207,7 @@ These variables are used directly by the orchestrator (`code_force_demo.py`). �
 
 ```env
 # CRITICAL: use a dedicated working directory.
-# The script DELETES APP_DIR if it already exists.
+# The script DELETES APP_DIR if it already exists. In the demo i used '/tmp/bike_backend' as APP_DIR
 APP_DIR=/absolute/path/to/a/safe/workdir/bike_backend
 
 # Target repository seeded with bike_backend/ code
@@ -219,7 +216,7 @@ GIT_REPO_URL=https://github.com/<you>/<your-seeded-backend-repo>.git
 # SonarQube
 SONARQUBE_URL=http://localhost:9000
 SONARQUBE_TOKEN=<your_sonarqube_user_token>
-SONARQUBE_PROJECT_KEY=bike-backend
+SONARQUBE_PROJECT_KEY=bike_backend
 
 # Models (OpenAI by default in this demo)
 GENERIC_MODEL_ID=<model-id-for-branch-dev-sonar>
@@ -267,7 +264,7 @@ The default script includes a sample ticket payload inside `code_force_demo.py` 
 - The Sonar Analyst agent is explicitly instructed **not** to pass `-Dsonar.branch.name`.
 - All scans are executed against the same `SONARQUBE_PROJECT_KEY`.
 
-If you want true per-branch analysis, you must use a SonarQube edition that supports it and adjust the tooling and prompts accordingly.
+If you want true per-branch analysis, you must use a SonarQube edition that supports it and adjust the tooling and prompts accordingly like SonarQube Developer or Enterprise.
 
 ---
 
@@ -315,10 +312,16 @@ docker volume rm sonarqube_conf sonarqube_data sonarqube_extensions sonarqube_lo
 
 ## License
 
-Add your preferred license (MIT / Apache-2.0 / etc.) and ensure it matches your intended public usage.
+This project is licensed under the Apache License, Version 2.0.
+- Include an accompanying LICENSE file with the full Apache 2.0 text.
+- Unless required by applicable law or agreed to in writing, software distributed under the License is provided on an “AS IS” basis, without warranties or conditions of any kind.
 
 ---
 
 ## Disclaimer
 
-This repository is a demonstration. Review generated code and security posture carefully before reusing patterns or outputs in production environments.
+This repository is a DEMO intended for educational purposes only.
+
+You are solely responsible for how you use this software and for validating any outputs produced by AI agents. The author(s) assume no liability for misuse, damages, security incidents, data loss, or failures arising from execution, configuration, or modification of this demo.
+
+Software is provided “AS IS”, without warranties or conditions of any kind.
