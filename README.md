@@ -18,7 +18,7 @@ This repo contains the orchestrator script (`code_force_demo.py`), agent prompts
 
 ## Architecture
 
-![Agentic workflow architecture](assets/agentic-workflow-architecture.png)
+![Agentic workflow architecture](assets/code_force_demo.png)
 
 **Workflow summary (aligned with the diagram):**
 
