@@ -14,6 +14,10 @@ At a high level, you provide a ticket-like task description. The system then:
 
 This repo contains the orchestrator script (`code_force_demo.py`), agent prompts, and tooling integration to reproduce the demo locally.
 
+This demo has been pusblished on my LinkedIn account.
+
+- **LinkedIn post:** <LINK_TO_LINKEDIN_POST>
+
 ---
 
 ## Architecture
@@ -182,6 +186,12 @@ If your Java tests use Testcontainers and Docker detection is flaky, create:
 
 ```bash
 touch ~/.docker-java.properties
+```
+
+And Add:
+
+```text
+api.version=1.44
 ```
 
 ---
