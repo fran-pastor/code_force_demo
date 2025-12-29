@@ -53,6 +53,7 @@ This repo contains the orchestrator script (`code_force_demo.py`), agent prompts
 
 - Docker
 - Git
+- Oracle JDK 21
 - Maven (3.9+)
 - Python 3 (recommended: 3.13+)
 
