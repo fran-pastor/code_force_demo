@@ -31,17 +31,17 @@ class AppConfig:
     Validates environment variables and defines project paths.
     """
     # Project Paths
-    APP_DIR: Path = Path(os.getenv("APP_DIR", "")).resolve()
+    APP_DIR: Path = Path(os.getenv("APP_DIR", "/tmp/bike_backend")).resolve()
 
     # External Service Credentials
-    SONAR_URL: str = os.getenv("SONARQUBE_URL", "")
+    SONAR_URL: str = os.getenv("SONARQUBE_URL", "http://localhost:9000")
     SONAR_TOKEN: str = os.getenv("SONARQUBE_TOKEN", "")
-    SONAR_PROJECT_KEY: str = os.getenv("SONARQUBE_PROJECT_KEY", "")
-    GIT_REPO_URL: str = os.getenv("GIT_REPO_URL", "")
+    SONAR_PROJECT_KEY: str = os.getenv("SONARQUBE_PROJECT_KEY", "bike_backend")
+    GIT_REPO_URL: str = os.getenv("GIT_REPO_URL", "git@github.com:<user>/bike_backend.git")
 
     # AI Model Configuration
-    GENERIC_MODEL_ID: str = os.getenv("GENERIC_MODEL_ID", "")
-    COORDINATOR_MODEL_ID: str = os.getenv("COORDINATOR_MODEL_ID", "")
+    GENERIC_MODEL_ID: str = os.getenv("GENERIC_MODEL_ID", "gpt-5-mini")
+    COORDINATOR_MODEL_ID: str = os.getenv("COORDINATOR_MODEL_ID", "gpt-5.1")
 
     @classmethod
     def validate(cls) -> None:
