@@ -336,7 +336,9 @@ This project is licensed under the Apache License, Version 2.0.
 
 ## Disclaimer
 
-This repository is a DEMO intended for educational purposes only.
+This repository is a DEMO intended for educational and demonstration purposes only.
+
+It is not a production-ready reference and does not include many of the security, compliance, and process controls required in real environments (e.g., permissions and least-privilege, secrets management, environment isolation/sandboxing, auditing, approvals/human-in-the-loop, governance, anti-abuse/prompt-injection protections, etc.). Do not use it “as-is” in production without proper hardening and adaptation.
 
 You are solely responsible for how you use this software and for validating any outputs produced by AI agents. The author(s) assume no liability for misuse, damages, security incidents, data loss, or failures arising from execution, configuration, or modification of this demo.
 
