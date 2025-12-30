@@ -16,7 +16,7 @@ This repo contains the orchestrator script (`code_force_demo.py`), agent prompts
 
 This demo has been pusblished on my LinkedIn account.
 
-- **LinkedIn post:** <LINK_TO_LINKEDIN_POST>
+- **LinkedIn post:** https://www.linkedin.com/pulse/agentic-code-force-demo-fran-pastor-i7asf
 
 ---
 
